@@ -1,0 +1,71 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Empleado
+ *
+ * @ORM\Table(name="empleado", indexes={@ORM\Index(name="area_id", columns={"area_id"})})
+ * @ORM\Entity
+ */
+class Empleado
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="string", length=255, nullable=false)
+     */
+    private $nombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255, nullable=false)
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sexo", type="string", length=1, nullable=false)
+     */
+    private $sexo;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="boletin", type="integer", nullable=false)
+     */
+    private $boletin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="text", length=65535, nullable=false)
+     */
+    private $descripcion;
+
+    /**
+     * @var \Areas
+     *
+     * @ORM\ManyToOne(targetEntity="Areas")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="area_id", referencedColumnName="id")
+     * })
+     */
+    private $area;
+
+
+}
+

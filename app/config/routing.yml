@@ -1,0 +1,8 @@
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+successLoginFacebook_form:
+    path:     /t_Facebook/facebook
+    defaults: { _controller: AppBundle:Default:successLoginFacebookForm }
+    
